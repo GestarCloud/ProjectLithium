@@ -1,5 +1,11 @@
+import AppBar from '../components/Header'
+
 function HomePage() {
-  return <div>Welcome to Next.js!</div>
+  return (
+      <>
+      <AppBar isLogin={false} />
+      </>
+    );
 }
 
 export default HomePage
