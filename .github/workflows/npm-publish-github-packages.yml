@@ -1,0 +1,42 @@
+# 当前工作流的名称
+name: Preview Node.js CI
+# ci触发的条件
+on:
+  push: # 什么请求触发
+    branches: 
+      - main # 作用在哪些分支上
+  workflow_dispatch:
+
+jobs: # 构建的任务，一个工作流有多个构建任务，
+  page-deploy:
+    runs-on: ubuntu-latest # 在什么服务器上面执行这些任务，这里使用最新版本的ubuntu
+    permissions:
+      contents: write
+    
+    steps: # 构建任务的步骤，一个任务可分为多个步骤
+    
+    # 步骤1 拉取仓库代码
+    - name: 拉取代码 # 步骤名称
+      uses: actions/checkout@v2 
+      
+    # 步骤2 给当前服务器安装node
+    - name: 安装 Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16 # node版本
+        cache: "npm"
+          
+    # 步骤3 下载项目依赖    
+    - name: 安装依赖项
+      run: npm install
+      
+    # 步骤4 打包node项目
+    - name: 构建项目
+      run: npm run build # 此处是你node项目的构建脚本
+      
+    # 步骤5 部署项目
+    - name: 部署到 pages 分支
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
