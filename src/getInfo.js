@@ -6,8 +6,7 @@ export default function getUserData(){
       axios.get(url+'/auth/info')
         .then(response => {
             return JSON.parse(response.data)
-        })
-        .catch(error => return({success:false,msg:error}));
+        });
     }
     else{
         return false
