@@ -73,7 +73,7 @@ export default function AppBar({userObj}) {
               jc: "space-between",
             },
           }}>
-          { userObj!=false ? (
+          { userObj!==false ? (
             <userDrop/>
           )
           :(
