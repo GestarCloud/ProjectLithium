@@ -7,7 +7,7 @@ export default function getUserData(){
         .then(response => {
             return JSON.parse(response.data)
         })
-        .catch(error => return {success:'false',msg:error});
+        .catch(error => return({success:false,msg:error}));
     }
     else{
         return false
