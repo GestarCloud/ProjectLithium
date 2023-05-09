@@ -51,7 +51,7 @@ function userDrop({userObj}){
 }
 
 
-export default function AppBar({isLogin, userObj}) {
+export default function AppBar({userObj}) {
 
   return (
       <Navbar isBordered variant={variant}>
@@ -73,7 +73,7 @@ export default function AppBar({isLogin, userObj}) {
               jc: "space-between",
             },
           }}>
-          { isLogin ? (
+          { userObj!=false ? (
             <userDrop/>
           )
           :(
