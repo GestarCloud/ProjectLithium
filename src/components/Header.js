@@ -57,7 +57,7 @@ export default function AppBar({userObj}) {
       <Navbar isBordered variant='sticky'>
         <Navbar.Brand>
           <Cloud/>
-          <Text h1 color="inherit" hideIn="xs">
+          <Text b color="inherit" hideIn="xs">
             Gestar Dashboard
           </Text>
         </Navbar.Brand>
