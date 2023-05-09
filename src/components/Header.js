@@ -1,4 +1,4 @@
-import { Navbar, Button, Link, Text, Card, Radio } from "@nextui-org/react";
+import { Dropdown, Avatar,Navbar, Button, Link, Text, Card, Radio } from "@nextui-org/react";
 import { Cloud } from '@mui/icons-material';
 
 
@@ -54,7 +54,7 @@ function userDrop({userObj}){
 export default function AppBar({userObj}) {
 
   return (
-      <Navbar isBordered variant={variant}>
+      <Navbar isBordered variant='sticky'>
         <Navbar.Brand>
           <Cloud/>
           <Text h1 color="inherit" hideIn="xs">
