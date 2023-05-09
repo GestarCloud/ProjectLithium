@@ -60,8 +60,16 @@ export default function AppBar({userObj}) {
           <Text b color="inherit" hideIn="xs">
             Gestar Dashboard
           </Text>
-        </Navbar.Brand>
-        <Navbar.Content hideIn="xs">
+        </Navbar.Brand css={{
+            "@xs": {
+              w: "12%",
+            },
+          }}>
+        <Navbar.Content hideIn="xs" 
+        enableCursorHighlight
+          activeColor="secondary"
+          hideIn="xs"
+          variant="highlight-rounded">
           <Navbar.Link href="#">概览</Navbar.Link>
           <Navbar.Link href="#">商店</Navbar.Link>
           <Navbar.Link href="#">我的</Navbar.Link>
@@ -73,17 +81,17 @@ export default function AppBar({userObj}) {
               jc: "space-between",
             },
           }}>
-          { userObj!==false ? (
+          { userObj!==false&&('success' in userObj)=== ? (
             <userDrop/>
           )
           :(
           <>
           <Navbar.Link color="inherit" href="#">
-            Login
+            登录
           </Navbar.Link>
           <Navbar.Item>
             <Button auto flat as={Link} href="#">
-              Sign Up
+              注册
             </Button>
           </Navbar.Item>
           </>
