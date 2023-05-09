@@ -1,4 +1,5 @@
 import axios from 'axios';
+import cookie from 'react-cookies';
 
 export default function getUserData(){
     const url='http://www.jerrymc.cn:90'
